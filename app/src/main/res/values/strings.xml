@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">My Banana</string>
+    <string name="title_activity_order">Order</string>
+    <string name="title_activity_custom_tas">Custom_tas</string>
+    <string name="title_activity_status">status</string>
+    <string name="title_activity_kcp1">KCP1</string>
+    <string name="title_activity_hello">hello</string>
+</resources>

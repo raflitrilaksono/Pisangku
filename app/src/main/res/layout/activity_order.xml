@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".tas"
+    android:orientation="vertical"
+    android:layout_margin="10dp">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Form Pemesanan"
+        android:textSize="25dp"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Barang Pesanan"
+        android:textSize="20dp"
+        android:layout_marginBottom="4dp" />
+
+    <Spinner
+        android:id="@+id/actv_produk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama barang yang dipesan"
+        android:ems = "10"
+        android:completionThreshold="1" />
+
+    <EditText
+        android:id="@+id/et_jumlah_produk"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Jumlah yang dipesan min. 1 ton"
+        android:inputType="number" />
+
+    <TextView
+        android:layout_marginTop="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Info Pemesan"
+        android:textSize="20dp"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/et_nama_lengkap"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Nama Lengkap"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/et_alamat"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Alamat Lengkap"
+        android:inputType="text"/>
+
+    <EditText
+        android:id="@+id/et_phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="No. Hp"
+        android:inputType="number"/>
+
+    <TextView
+        android:id="@+id/et_email_order"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:textColor="#000000"
+        android:textSize="18dp"/>
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Perhatian!"
+        android:textStyle="italic" />
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pastikan barang yang anda pesan sudah benar."
+        android:textStyle="italic"/>
+
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="285dp"
+        android:layout_height="wrap_content"
+        android:text="Cukup tekan tombol order 1x, pesanan sudah masuk kedalam database kami."
+        android:textStyle="italic" />
+
+    <Button
+        android:id="@+id/bt_order"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="8dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right"
+        android:text="Order"/>
+
+
+</LinearLayout>

@@ -1,0 +1,5 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="dialog_width">900dp</dimen>
+    <dimen name="dialog_height">900dp</dimen>
+</resources>

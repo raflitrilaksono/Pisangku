@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary">
+
+        <TextView
+            android:id="@+id/tv_profile_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profile Name"
+            android:textColor="#ffffff"
+            android:textSize="18dp"/>
+
+        <Button
+            android:id="@+id/bt_logout_home"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Keluar"/>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="216dp"
+        android:orientation="horizontal">
+
+
+        <Button
+            android:id="@+id/bt_products"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Produk" />
+
+        <Button
+            android:id="@+id/bt_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Tas" />
+        <Button
+            android:id="@+id/bt_kcp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Profil KCP"/>
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="99dp"
+        android:layout_height="99dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="70dp"
+        app:srcCompat="@drawable/mybanana" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="189dp"
+        android:text="SELAMAT DATANG DI MY BANANA"
+        android:textColor="#000000"
+        android:gravity="center"
+        android:textStyle="bold"/>
+</RelativeLayout>

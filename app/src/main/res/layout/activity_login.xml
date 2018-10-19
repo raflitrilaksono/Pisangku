@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".login"
+    android:background="@drawable/psg">
+
+
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="30dp"
+        android:background="#FFFFFF">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Masuk Akun"
+        android:textSize="35dp"
+        android:layout_gravity="center"
+        android:paddingBottom="30dp"/>
+
+    <EditText
+        android:id="@+id/et_email1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan email anda..." />
+
+    <EditText
+        android:id="@+id/et_password1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Masukkan password anda..."
+        android:inputType="textPassword" />
+
+    <Button
+        android:id="@+id/bt_masuk"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Masuk"
+        android:layout_margin="25dp"/>
+
+    <TextView
+        android:id="@+id/tv_signup"
+        android:clickable="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:text="Belum memiliki akun? Daftar disini" />
+
+    </LinearLayout>
+
+</RelativeLayout>
