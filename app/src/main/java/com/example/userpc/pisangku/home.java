@@ -27,6 +27,10 @@ public class home extends AppCompatActivity implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
         FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
+        if(!firebaseUser.isEmailVerified()){
+            finish();
+            startActivity(new Intent(this, status.class));
+        }
 
         tvProfileName = findViewById(R.id.tv_profile_name);
         btKcp = findViewById(R.id.bt_kcp);

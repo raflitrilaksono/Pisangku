@@ -54,30 +54,27 @@ public class status extends AppCompatActivity {
 
                             }
                         });
-
-                btn_refresh.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        FirebaseAuth.getInstance().getCurrentUser()
-                                .reload()
-                                .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        setInfo();
-                                    }
-                                });
-                    }
-                });
-
-
-            }
-
-            private void setInfo() {
-                FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
-
-                txt_mail.setText(new StringBuilder("EMAIL : ").append(user.getEmail()));
-                txt_uid.setText(new StringBuilder("UID : ").append(user.getUid()));
-                txt_status.setText(new StringBuilder("STATUS : ").append(String.valueOf(user.isEmailVerified())));
             }
         });
-    }{}}
+        btn_refresh.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                FirebaseAuth.getInstance().getCurrentUser()
+                        .reload()
+                        .addOnCompleteListener( new OnCompleteListener<Void>() {
+                            @Override
+                            public void onComplete(@NonNull Task<Void> task) {
+                                setInfo();
+                            }
+                        });
+            }
+        });
+    }
+    private void setInfo() {
+        FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+
+        txt_mail.setText(new StringBuilder("EMAIL : ").append(user.getEmail()));
+        txt_uid.setText(new StringBuilder("UID : ").append(user.getUid()));
+        txt_status.setText(new StringBuilder("STATUS : ").append(String.valueOf(user.isEmailVerified())));
+    }
+}
