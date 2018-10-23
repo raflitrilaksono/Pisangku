@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();
                 if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Daftar Berhasil", Toast.LENGTH_LONG).show();
+                    Toast.makeText(MainActivity.this, "Daftar Berhasil", Toast.LENGTH_SHORT).show();
 
 //                    UserInformation userInformation = new UserInformation(name, phone);
 //                    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();

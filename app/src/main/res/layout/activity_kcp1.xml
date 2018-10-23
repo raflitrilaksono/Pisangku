@@ -7,9 +7,11 @@
 
     <ImageView
         android:id="@+id/profil_photoKcp"
+        app:srcCompat="@drawable/kcp"
         android:layout_width="225px"
         android:layout_height="225px"
-        android:layout_gravity="center" />
+        android:layout_gravity="center"
+        android:paddingTop="10dp"/>
 
         <TextView
             android:id="@+id/profil_namakcp"
@@ -20,8 +22,8 @@
             android:layout_marginVertical="8dp"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="23dp"
-            android:text="KAMPUNG CAU PADJAJARAN"/>
+            android:textSize="18dp"
+            android:text="KAMPUNG CAU PADJADJARAN"/>
 
         <TextView
             android:id="@+id/profil_singkatkcp"
@@ -32,8 +34,10 @@
             android:layout_marginVertical="8dp"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="18dp"
-            android:text="Kampung Cau Padjajaran (KCP) adalah..."/>
+            android:textSize="14dp"
+            android:text="Kampung Cau Padjajaran (KCP) adalah lembaga yang fokus terhadap pengembangan masyarakat dengan menggunakan pola pendekatan sinergis
+sistem jabar masagi-ABCG (Academic, Bussiness, Community, Government) yang berarti berkaitannya dengan akademisi, bisnis, komunitas, dan pemerintahan untuk pengembangan
+terhadap petani pisang di Jawa Barat."/>
 
         <TextView
             android:id="@+id/profil_visikcp"
@@ -44,8 +48,8 @@
             android:layout_marginVertical="8dp"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="18dp"
-            android:text="Creating Superior Bananas..."/>
+            android:textSize="14dp"
+            android:text="Visi : \n Creating Superior Bananas and Managing West Java Local Bananas for Better Living."/>
 
         <TextView
             android:id="@+id/profil_misikcp"
@@ -56,8 +60,12 @@
             android:layout_marginVertical="8dp"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="18dp"
-            android:text="1. Making Farmer or Village not as an object..."/>
+            android:textSize="14dp"
+            android:text="Misi : \n 1. Making Farmer or Village not as an object, but as a Subject. \n
+2. Increasing the value added of the local bananas. \n
+3. Harmonism and Sinergism System (Community, Academic, Government, Industry, and Bussiness).\n
+4. Enhaching Social Welfare : Scolarships, and The Farmer Care. \n
+5. Embrasing the Middle Man in Community Empowernment."/>
 
         <TextView
             android:id="@+id/profil_mottokcp"
@@ -68,7 +76,7 @@
             android:layout_marginVertical="8dp"
             android:textAlignment="center"
             android:textColor="#000000"
-            android:textSize="18dp"
-            android:text="BISNISNACau, CAUNAjabar, BARUDAKNApatanisajajar"/>
+            android:textSize="14dp"
+            android:text="Motto : \n BISNISNACau, CAUNAjabar, BARUDAKNApatanisajajar"/>
 
     </LinearLayout>

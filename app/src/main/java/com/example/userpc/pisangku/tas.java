@@ -113,7 +113,7 @@ import java.util.List;
                  phone = listPhone.toArray(phone);
                  email = listEmail.toArray(email);
 
-                 Toast.makeText(tas.this, "Pemesanan Berhasil", Toast.LENGTH_LONG).show();
+                 Toast.makeText(tas.this, "Pemesanan Berhasil", Toast.LENGTH_SHORT).show();
 
          }
 
