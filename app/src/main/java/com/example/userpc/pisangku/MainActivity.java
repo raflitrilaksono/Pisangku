@@ -17,6 +17,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseAuthUserCollisionException;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
@@ -27,6 +28,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Button btDaftar;
     String email, password;
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
     private DatabaseReference databaseReference;
     ProgressDialog progressDialog;
 
@@ -37,8 +39,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() != null){
-            finish();
-            startActivity(new Intent(this, home.class));
+            firebaseUser = firebaseAuth.getCurrentUser();
+            if(firebaseUser.isEmailVerified()) {
+                finish();
+                startActivity(new Intent(this, home.class));
+            }
         }
 
         progressDialog = new ProgressDialog(this);
@@ -84,7 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 //                    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
 //                    databaseReference.child(firebaseUser.getUid()).setValue(userInformation);
 
-                    finish();
+                    //finish();
                     startActivity(new Intent(getApplicationContext(), status.class));
                 }else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){

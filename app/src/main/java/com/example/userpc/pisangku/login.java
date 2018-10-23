@@ -27,6 +27,7 @@ public class login extends AppCompatActivity implements View.OnClickListener {
     Button btMasuk;
     String email, password;
     private FirebaseAuth firebaseAuth;
+    private FirebaseUser firebaseUser;
     ProgressDialog progressDialog;
     Task task;
 
@@ -39,8 +40,13 @@ public class login extends AppCompatActivity implements View.OnClickListener {
 
         firebaseAuth = FirebaseAuth.getInstance();
         if(firebaseAuth.getCurrentUser() != null){
-            finish();
-            startActivity(new Intent(getApplicationContext(), home.class));
+            firebaseUser = firebaseAuth.getCurrentUser();
+            if(firebaseUser.isEmailVerified()) {
+                finish();
+                startActivity(new Intent(getApplicationContext(), home.class));
+            }else{
+                startActivity(new Intent(getApplicationContext(), status.class));
+            }
 
             //Start Login
           //  startActivityForResult(AuthUI.getInstance().createSignInIntentBuilder().setAllowNewEmail.build(), PER_LOGIN);
