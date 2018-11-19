@@ -31,16 +31,24 @@
         android:ems = "10"
         android:completionThreshold="1" />
 
-    <EditText
+    <TextView
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Jumlah Pesanan (Ton)"
+        android:textSize="20dp"
+        android:layout_marginBottom="4dp"/>
+
+    <Spinner
         android:id="@+id/et_jumlah_produk"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Jumlah yang dipesan min. 1 ton"
-        android:inputType="number"
-        android:maxLength="1"/>
+        android:hint="Jumlah yang dipesan min. 1 ton, max. 9 ton"
+        android:ems = "10"
+        android:completionThreshold="1" />
 
     <TextView
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="5dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Info Pemesan"

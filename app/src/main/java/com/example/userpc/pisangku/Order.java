@@ -27,9 +27,9 @@ import java.util.List;
 
 public class Order extends AppCompatActivity {
 
-    EditText etJumlahProduk, etNama, etAlamat, etPhone;
+    EditText etNama, etAlamat, etPhone;
     TextView tvEmail;
-    Spinner actvProduk;
+    Spinner actvProduk, etJumlahProduk;
     String nama, alamat, produk, jumlahProduk, phone, email, userUid;
     Button btOrder;
 
@@ -37,6 +37,9 @@ public class Order extends AppCompatActivity {
 
     ArrayAdapter<String> adapter;
     ArrayAdapter<String> titleadapter;
+    ArrayAdapter<String> numberadapter;
+
+    String[] number = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
 
     String[] title = {};
     String[] price = {};
@@ -92,6 +95,9 @@ public class Order extends AppCompatActivity {
 
         titleadapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,title);
         actvProduk.setAdapter(titleadapter);
+
+        numberadapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,number);
+        etJumlahProduk.setAdapter(numberadapter);
 
         }
 
@@ -158,18 +164,18 @@ public class Order extends AppCompatActivity {
 
     private void saveUserInformation(){
         produk = actvProduk.getSelectedItem().toString();
-        jumlahProduk = etJumlahProduk.getText().toString();
+        jumlahProduk = etJumlahProduk.getSelectedItem().toString();
         nama = etNama.getText().toString();
         alamat = etAlamat.getText().toString();
         phone = etPhone.getText().toString();
         email = tvEmail.getText().toString();
 
 
-        if(jumlahProduk.isEmpty()){
-            etJumlahProduk.setError("Mohon isi jumlah produk yang ingin anda beli");
-            etJumlahProduk.requestFocus();
-            return;
-        }
+   //     if(jumlahProduk.isEmpty()){
+     //       etJumlahProduk.setError("Mohon isi jumlah produk yang ingin anda beli");
+       //     etJumlahProduk.requestFocus();
+         //   return;
+      //  }
 
         if(nama.isEmpty()){
             etNama.setError("Mohon isi nama anda");

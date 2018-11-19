@@ -6,6 +6,7 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -20,6 +21,8 @@ import com.google.firebase.auth.FirebaseAuthUserCollisionException;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.regex.Pattern;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
@@ -60,8 +63,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     }
 
-
-
     private void userRegister(){
         email = etEmail.getText().toString().trim();
         password = etPassword.getText().toString().trim();
@@ -74,6 +75,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Toast.makeText(MainActivity.this, "Please enter your password...", Toast.LENGTH_SHORT).show();
             return;
         }
+        if(password.length()<8){
+            Toast.makeText(MainActivity.this,"The given password is invalid.[Password should be at least 8 characters.]", Toast.LENGTH_SHORT).show();
+            return;}
 
         progressDialog.setMessage("Registering...");
         progressDialog.show();
@@ -83,7 +87,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             public void onComplete(@NonNull Task<AuthResult> task) {
                 progressDialog.dismiss();
                 if(task.isSuccessful()){
-                    Toast.makeText(MainActivity.this, "Daftar Berhasil", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, "Daftar Berhasil, Silahkan verifikasi email anda", Toast.LENGTH_LONG).show();
 
 //                    UserInformation userInformation = new UserInformation(name, phone);
 //                    FirebaseUser firebaseUser = firebaseAuth.getCurrentUser();
@@ -93,7 +97,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(new Intent(getApplicationContext(), status.class));
                 }else{
                     if(task.getException() instanceof FirebaseAuthUserCollisionException){
-                        Toast.makeText(MainActivity.this, "Email sudah terdaftar", Toast.LENGTH_LONG).show();
+                        Toast.makeText(MainActivity.this, "Email sudah terdaftar", Toast.LENGTH_SHORT).show();
                     }else{
                         Toast.makeText(MainActivity.this, task.getException().getMessage(), Toast.LENGTH_LONG).show();
                     }
