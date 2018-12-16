@@ -35,22 +35,32 @@ public class ListViewAdapter extends ArrayAdapter<Review> {
             LayoutInflater inflater = LayoutInflater.from(context);
             View row = inflater.inflate(resource, null, false);
 
-            TextView textViewItemProduk = row.findViewById(R.id.textsItemProduk);
-            TextView textViewItemjumlahProduk = row.findViewById(R.id.textsItemjumlahProduk);
+            TextView textViewItemProduk1 = row.findViewById(R.id.textsItemProduk1);
+            TextView textViewItemjumlahProduk1 = row.findViewById(R.id.textsItemjumlahProduk1);
+            TextView textViewHarga1 = row.findViewById(R.id.textsHarga1);
+            TextView textViewItemProduk2 = row.findViewById(R.id.textsItemProduk2);
+            TextView textViewItemjumlahProduk2 = row.findViewById(R.id.textsItemjumlahProduk2);
+            TextView textViewHarga2 = row.findViewById(R.id.textsHarga2);
             TextView textViewItemNama = row.findViewById(R.id.textsItemNama);
             TextView textViewItemAlamat = row.findViewById(R.id.textsItemAlamat);
             TextView textViewItemPhone = row.findViewById(R.id.textsItemPhone);
             TextView textViewItemEmail = row.findViewById(R.id.textsItemEmail);
+          //  TextView textViewItemTotal = row.findViewById(R.id.textsItemTotal);
 
 
             Review review = reviewList.get(pos);
 
-            textViewItemProduk.setText(review.getItemProduk());
-            textViewItemjumlahProduk.setText(review.getItemjumlahProduk());
-            textViewItemNama.setText(review.getItemNama());
-            textViewItemAlamat.setText(review.getItemAlamat());
-            textViewItemPhone.setText(review.getItemPhone());
-            textViewItemEmail.setText(review.getItemEmail());
+            textViewItemProduk1.setText("Nama Pesanan 1 : "+review.getItemProduk1());
+            textViewItemjumlahProduk1.setText("Jumlah Pesanan 1 : "+review.getItemjumlahProduk1());
+            textViewHarga1.setText("Harga Pesanan 1 : "+review.getItemHarga1());
+            textViewItemProduk2.setText("Nama Pesanan 2 : "+review.getItemProduk2());
+            textViewItemjumlahProduk2.setText("Jumlah Pesanan 2 : "+review.getItemjumlahProduk2());
+            textViewHarga2.setText("Harga Pesanan 2 : "+review.getItemHarga2());
+            textViewItemNama.setText("Nama Konsumen : "+review.getItemNama());
+            textViewItemAlamat.setText("Alamat Konsumen : "+review.getItemAlamat());
+            textViewItemPhone.setText("No Hp Konsumen : "+review.getItemPhone());
+            textViewItemEmail.setText("Email : "+review.getItemEmail());
+           // textViewItemTotal.setText("Total : "+review.getItemTotal());
             return row;
         }
 

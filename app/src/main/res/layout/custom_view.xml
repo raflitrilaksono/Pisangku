@@ -25,16 +25,40 @@
             android:textSize="17dp" />
 
         <TextView
-            android:id="@+id/textsItemProduk"
+            android:id="@+id/textsItemProduk1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17dp" />
 
         <TextView
-            android:id="@+id/textsItemjumlahProduk"
+            android:id="@+id/textsItemjumlahProduk1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/textsHarga1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/textsItemProduk2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/textsItemjumlahProduk2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17dp" />
+
+        <TextView
+            android:id="@+id/textsHarga2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"/>
 
         <TextView
             android:id="@+id/textsItemPhone"
@@ -47,6 +71,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="17dp" />
+
     </LinearLayout>
 
 

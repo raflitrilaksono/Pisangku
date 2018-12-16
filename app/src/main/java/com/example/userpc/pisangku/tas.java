@@ -34,16 +34,21 @@ import java.util.List;
      ListView listView;
      private ArrayList<Review> reviewList;
 
-     String[] produk = {};
-     String[] jumlahProduk = {};
+     String[] produk1 = {};
+     String[] jumlahProduk1 = {};
+     String[] harga1 = {};
+     String[] produk2 = {};
+     String[] jumlahProduk2 = {};
+     String[] harga2 = {};
      String[] nama = {};
      String[] alamat = {};
      String[] phone = {};
      String[] email = {};
+    // String[] total = {};
 
      ArrayList arrayList = new ArrayList<>();
 
-     List<String> listProduk, listJumlahProduk, listNama, listAlamat, listPhone, listEmail;
+     List<String> listProduk1, listJumlahProduk1, listHarga1, listProduk2, listJumlahProduk2, listHarga2, listNama, listAlamat, listPhone, listEmail;
 
      private DatabaseReference databaseReference;
      private FirebaseAuth firebaseAuth;
@@ -67,12 +72,17 @@ import java.util.List;
          reviewList = new ArrayList<>();
          listView = findViewById(R.id.listview0);
 
-         listProduk = new ArrayList<>(Arrays.asList(produk));
-         listJumlahProduk = new ArrayList<>(Arrays.asList(jumlahProduk));
+         listProduk1 = new ArrayList<>(Arrays.asList(produk1));
+         listJumlahProduk1 = new ArrayList<>(Arrays.asList(jumlahProduk1));
+         listHarga1 = new ArrayList<>(Arrays.asList(harga1));
+         listProduk2 = new ArrayList<>(Arrays.asList(produk2));
+         listJumlahProduk2 = new ArrayList<>(Arrays.asList(jumlahProduk2));
+         listHarga2 = new ArrayList<>(Arrays.asList(harga2));
          listNama = new ArrayList<>(Arrays.asList(nama));
          listAlamat = new ArrayList<>(Arrays.asList(alamat));
          listPhone = new ArrayList<>(Arrays.asList(phone));
          listEmail = new ArrayList<>(Arrays.asList(email));
+       //  listTotal = new ArrayList<>(Arrays.asList(total));
 
          databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -92,26 +102,45 @@ import java.util.List;
              public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                  Order1 order1 = dataSnapshot.getValue(Order1.class);
 
-                 reviewList.add(new Review(order1.produk, order1.jumlahProduk, order1.nama, order1.alamat, order1.phone, order1.email));
+                 reviewList.add(new Review(order1.produk1, order1.jumlahProduk1, order1.harga1, order1.produk2, order1.jumlahProduk2, order1.harga2, order1.nama, order1.alamat, order1.phone, order1.email));
                  listViewAdapter.notifyDataSetChanged();
 
 //                title[title.length] = products.ge;
 //                price[price.length] = products.price;
 //                desc[desc.length] = products.desc;
+                 if(order1.produk1.toString() != "Pilih barang") {
+                     listProduk1.add(order1.produk1.toString());
+                 }
+                 if(order1.jumlahProduk1.toString() != "Pilih jumlah") {
+                     listJumlahProduk1.add(order1.jumlahProduk1.toString());
+                 }
 
-                 listProduk.add(order1.produk.toString());
-                 listJumlahProduk.add(order1.jumlahProduk.toString());
+                 listHarga1.add(order1.harga1.toString());
+
+                 if(order1.produk2.toString() != "Pilih barang") {
+                     listProduk2.add(order1.produk2.toString());
+                 }
+                 if(order1.jumlahProduk2.toString() != "Pilih jumlah") {
+                     listJumlahProduk2.add(order1.jumlahProduk2.toString());
+                 }
+                 listHarga2.add(order1.harga2.toString());
                  listNama.add(order1.nama.toString());
                  listAlamat.add(order1.alamat.toString());
                  listPhone.add(order1.phone.toString());
                  listEmail.add(order1.email.toString());
+               //  listTotal.add(order1.total.toString());
 
-                 produk = listProduk.toArray(produk);
-                 jumlahProduk = listJumlahProduk.toArray(jumlahProduk);
+                 produk1 = listProduk1.toArray(produk1);
+                 jumlahProduk1 = listJumlahProduk1.toArray(jumlahProduk1);
+                 harga1 = listHarga1.toArray(harga1);
+                 produk2 = listProduk2.toArray(produk2);
+                 jumlahProduk2 = listJumlahProduk2.toArray(jumlahProduk2);
+                 harga2 = listHarga2.toArray(harga2);
                  nama = listNama.toArray(nama);
                  alamat = listAlamat.toArray(alamat);
                  phone = listPhone.toArray(phone);
                  email = listEmail.toArray(email);
+             //    total = listTotal.toArray(total);
 
                 // Toast.makeText(tas.this, "Pemesanan Berhasil", Toast.LENGTH_LONG).show();
 
@@ -151,22 +180,32 @@ import java.util.List;
              public void onChildRemoved(DataSnapshot dataSnapshot) {
                  Order1 order1 = dataSnapshot.getValue(Order1.class);
 
-                 reviewList.remove(new Review(order1.produk, order1.jumlahProduk, order1.nama, order1.alamat, order1.phone, order1.email));
+                 reviewList.remove(new Review(order1.produk1, order1.jumlahProduk1, order1.harga1, order1.produk2, order1.jumlahProduk2, order1.harga2, order1.nama, order1.alamat, order1.phone, order1.email));
                  listViewAdapter.notifyDataSetChanged();
 
-                 listProduk.remove(order1.produk.toString());
-                 listJumlahProduk.remove(order1.jumlahProduk.toString());
+                 listProduk1.remove(order1.produk1.toString());
+                 listJumlahProduk1.remove(order1.jumlahProduk1.toString());
+                 listHarga1.remove(order1.harga1.toString());
+                 listProduk2.remove(order1.produk2.toString());
+                 listJumlahProduk2.remove(order1.jumlahProduk2.toString());
+                 listHarga2.remove(order1.harga2.toString());
                  listNama.remove(order1.nama.toString());
                  listAlamat.remove(order1.alamat.toString());
                  listPhone.remove(order1.phone.toString());
                  listEmail.remove(order1.email.toString());
+                // listTotal.remove(order1.total.toString());
 
-                 produk = listProduk.toArray(produk);
-                 jumlahProduk = listJumlahProduk.toArray(jumlahProduk);
+                 produk1 = listProduk1.toArray(produk1);
+                 jumlahProduk1 = listJumlahProduk1.toArray(jumlahProduk1);
+                 harga1 = listHarga1.toArray(harga1);
+                 produk2 = listProduk2.toArray(produk2);
+                 jumlahProduk2 = listJumlahProduk2.toArray(jumlahProduk2);
+                 harga2 = listHarga2.toArray(harga2);
                  nama = listNama.toArray(nama);
                  alamat = listAlamat.toArray(alamat);
                  phone = listPhone.toArray(phone);
                  email = listEmail.toArray(email);
+               //  total = listTotal.toArray(total);
 
          }
              @Override

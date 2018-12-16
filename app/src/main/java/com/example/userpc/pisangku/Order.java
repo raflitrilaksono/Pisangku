@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -28,20 +29,22 @@ import java.util.List;
 public class Order extends AppCompatActivity {
 
     EditText etNama, etAlamat, etPhone;
-    TextView tvEmail;
-    Spinner actvProduk, etJumlahProduk;
-    String nama, alamat, produk, jumlahProduk, phone, email, userUid;
+    TextView tvEmail, tvHarga1, tvHarga2;
+    Spinner actvProduk1, etJumlahProduk1, actvProduk2, etJumlahProduk2;
+    String nama, alamat, produk1, jumlahProduk1, harga1, phone, email, userUid, produk2, jumlahProduk2, harga2;
     Button btOrder;
 
     Context context = this;
+
+   // int index=-1;
 
     ArrayAdapter<String> adapter;
     ArrayAdapter<String> titleadapter;
     ArrayAdapter<String> numberadapter;
 
-    String[] number = {"1","2", "3", "4", "5", "6", "7", "8", "9"};
+    String[] number = {"Pilih Jumlah", "1","2", "3", "4", "5", "6", "7", "8", "9"};
 
-    String[] title = {};
+    String[] title = {"Pilih Barang"};
     String[] price = {};
     String[] desc = {};
     String[] turunan = {};
@@ -71,8 +74,19 @@ public class Order extends AppCompatActivity {
 
         productsList = new ArrayList<>();
 
-        actvProduk = findViewById(R.id.actv_produk);
-        etJumlahProduk = findViewById(R.id.et_jumlah_produk);
+        actvProduk1 = findViewById(R.id.actv_produk1);
+        etJumlahProduk1 = findViewById(R.id.et_jumlah_produk1);
+        tvHarga1 = findViewById(R.id.tvHarga1);
+        actvProduk2 = findViewById(R.id.actv_produk2);
+        etJumlahProduk2 = findViewById(R.id.et_jumlah_produk2);
+        tvHarga1 = findViewById(R.id.tvHarga1);
+       // if (index == -1){
+       // tvHarga1.setText("");
+       // } else { tvHarga1.setText(price[index]);}
+        tvHarga2 = findViewById(R.id.tvHarga2);
+      //  if(index == -1){
+        //    tvHarga2.setText("");
+       // } else { tvHarga2.setText(price[index]);}
         etNama = findViewById(R.id.et_nama_lengkap);
         etAlamat = findViewById(R.id.et_alamat);
         etPhone = findViewById(R.id.et_phone);
@@ -91,15 +105,35 @@ public class Order extends AppCompatActivity {
             }
         });
 
+    //   actvProduk1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(index = Arrays.asList(title).indexOf(actvProduk1.getSelectedItem().toString()))
+      // {
+      //     @Override
+        //   public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position)
+          //  if(index == -1)
+
+           // {
+             //  tvHarga1.setText("");
+           // } else { tvHarga1.setText(price[index]);}
+      // }
+        //    @Override
+        //public void onNothingSelected(AdapterView<?> parentView)
+       // {
+
+       // }
+       // });
+
         childChangeListener();
 
         titleadapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,title);
-        actvProduk.setAdapter(titleadapter);
+        actvProduk1.setAdapter(titleadapter);
+        actvProduk2.setAdapter(titleadapter);
 
         numberadapter = new ArrayAdapter<>(this, android.R.layout.simple_spinner_dropdown_item,number);
-        etJumlahProduk.setAdapter(numberadapter);
+        etJumlahProduk1.setAdapter(numberadapter);
+        etJumlahProduk2.setAdapter(numberadapter);
 
-        }
+
+    }
 
     private void childChangeListener(){
         databaseReference.child("products").addChildEventListener(new ChildEventListener() {
@@ -117,13 +151,16 @@ public class Order extends AppCompatActivity {
                 desc = listDesc.toArray(desc);
                 turunan = listTurunan.toArray(turunan);
 
-               // Toast.makeText(Order.this, "Selamat Berbelanja", Toast.LENGTH_SHORT).show();
+            //    index = Arrays.asList(title).indexOf(actvProduk1.getSelectedItem().toString());
+
+                // Toast.makeText(Order.this, "Selamat Berbelanja", Toast.LENGTH_SHORT).show();
 
                 productsList.add(products);
 
                 adapter = new ArrayAdapter<String>(context, android.R.layout.select_dialog_item, title);
 
-                actvProduk.setAdapter(adapter);
+                actvProduk1.setAdapter(adapter);
+                actvProduk2.setAdapter(adapter);
 
             }
 
@@ -163,19 +200,23 @@ public class Order extends AppCompatActivity {
     }
 
     private void saveUserInformation(){
-        produk = actvProduk.getSelectedItem().toString();
-        jumlahProduk = etJumlahProduk.getSelectedItem().toString();
+        produk1 = actvProduk1.getSelectedItem().toString();
+        jumlahProduk1 = etJumlahProduk1.getSelectedItem().toString();
+        harga1 = tvHarga1.getText().toString();
+        produk2 = actvProduk2.getSelectedItem().toString();
+        jumlahProduk2 = etJumlahProduk2.getSelectedItem().toString();
+        harga2 = tvHarga2.getText().toString();
         nama = etNama.getText().toString();
         alamat = etAlamat.getText().toString();
         phone = etPhone.getText().toString();
         email = tvEmail.getText().toString();
 
 
-   //     if(jumlahProduk.isEmpty()){
-     //       etJumlahProduk.setError("Mohon isi jumlah produk yang ingin anda beli");
-       //     etJumlahProduk.requestFocus();
-         //   return;
-      //  }
+        //     if(jumlahProduk.isEmpty()){
+        //       etJumlahProduk.setError("Mohon isi jumlah produk yang ingin anda beli");
+        //     etJumlahProduk.requestFocus();
+        //   return;
+        //  }
 
         if(nama.isEmpty()){
             etNama.setError("Mohon isi nama anda");
@@ -197,8 +238,26 @@ public class Order extends AppCompatActivity {
             tvEmail.requestFocus();
             return;
         }
+        if(produk1 == "Pilih Barang"){
+            produk1 = "-";
+        }
+        if(jumlahProduk1 == "Pilih Jumlah"){
+            jumlahProduk1 = "-";
+        }
+        if(produk2 == "Pilih Barang"){
+            produk2 = "-";
+        }
+        if(jumlahProduk2 == "Pilih Jumlah"){
+            jumlahProduk2 = "-";
+        }
+        if(produk1 == "Pilih Barang"){
+            harga1 = "0";
+        }
+        if(produk2 == "Pilih Barang"){
+            harga2 = "0";
+        }
 
-        databaseReference.child("Orders").child(userUid).push().setValue(new Order1(produk, jumlahProduk, nama, alamat, phone, email));
+        databaseReference.child("Orders").child(userUid).push().setValue(new Order1(produk1, jumlahProduk1, harga1, produk2, jumlahProduk2, harga2,nama, alamat, phone, email));
 
     }
 
