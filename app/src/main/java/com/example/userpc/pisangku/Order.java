@@ -29,14 +29,15 @@ import java.util.List;
 public class Order extends AppCompatActivity {
 
     EditText etNama, etAlamat, etPhone;
-    TextView tvEmail, tvHarga1, tvHarga2;
+    TextView tvEmail, tvHarga1, tvHarga2, tvTotal;
     Spinner actvProduk1, etJumlahProduk1, actvProduk2, etJumlahProduk2;
-    String nama, alamat, produk1, jumlahProduk1, harga1, phone, email, userUid, produk2, jumlahProduk2, harga2;
+    String nama, alamat, produk1, jumlahProduk1, harga1, phone, email, userUid, produk2, jumlahProduk2, harga2, total;
     Button btOrder;
 
     Context context = this;
 
-   // int index=-1;
+    int index = -1;
+    int Harga1, Harga2,Total;
 
     ArrayAdapter<String> adapter;
     ArrayAdapter<String> titleadapter;
@@ -91,6 +92,7 @@ public class Order extends AppCompatActivity {
         etAlamat = findViewById(R.id.et_alamat);
         etPhone = findViewById(R.id.et_phone);
         tvEmail = findViewById(R.id.et_email_order);
+        tvTotal = findViewById(R.id.et_total);
 
         tvEmail.setText(firebaseUser.getEmail());
 
@@ -103,23 +105,81 @@ public class Order extends AppCompatActivity {
                 startActivity(new Intent(context, tas.class));
 
             }
+
         });
 
-    //   actvProduk1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(index = Arrays.asList(title).indexOf(actvProduk1.getSelectedItem().toString()))
-      // {
-      //     @Override
-        //   public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position)
-          //  if(index == -1)
+      actvProduk1.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+          @Override
+          public void onItemSelected(AdapterView<?> parent, View view, int position, long id)
+          {
+              if(position == 0){
+                  tvHarga1.setText("");
+              } else {
+                  tvHarga1.setText(price[position]);
+              }
+                if(tvHarga1.getText().toString()!= null) {
+                    Harga1 = Integer.parseInt(tvHarga1.getText().toString());
+                }
+                if(tvHarga2.getText().toString()!= null) {
+                    Harga2 = Integer.parseInt(tvHarga2.getText().toString());
+                }
+                  Total = Harga1+Harga2;
+                  tvTotal.setText(Integer.toString(Total));
+          }
 
-           // {
-             //  tvHarga1.setText("");
-           // } else { tvHarga1.setText(price[index]);}
-      // }
-        //    @Override
-        //public void onNothingSelected(AdapterView<?> parentView)
+          @Override
+          public void onNothingSelected(AdapterView<?> parent) {
+
+
+          }
+      });
+
+        actvProduk2.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                if(position == 0){
+                    tvHarga2.setText("");
+                } else {
+                    tvHarga2.setText(price[position]);
+                }
+                if(tvHarga1.getText().toString()!= null) {
+                    Harga1 = Integer.parseInt(tvHarga1.getText().toString());
+                }
+                if(tvHarga2.getText().toString()!= null) {
+                    Harga2 = Integer.parseInt(tvHarga2.getText().toString());
+                }
+                Total = Harga1+Harga2;
+                tvTotal.setText(Integer.toString(Total));
+
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+
+
+       // int harga1 = Integer.parseInt(tvHarga1.getText().toString());
+       // int harga2 = Integer.parseInt(tvHarga2.getText().toString());
+
+
+
+
+        // actvProduk1.setOnItemSelectedListener(new OnItemSelectedListener()
        // {
+         //   @Override
+           // public void onItemSelected(AdapterView<?> parentView, View selectedItemView, int position){
+             //   if(position == 0){
+               //     tvHarga1.setText("");
+              //  } else {
+               //     tvHarga1.setText(price[position]);
+                //}
+           // }
+           // @Override
+           // public void onNothingSelected(AdapterView<?> parentView){
 
-       // }
+            //}
        // });
 
         childChangeListener();
@@ -210,6 +270,7 @@ public class Order extends AppCompatActivity {
         alamat = etAlamat.getText().toString();
         phone = etPhone.getText().toString();
         email = tvEmail.getText().toString();
+        total = tvTotal.getText().toString();
 
 
         //     if(jumlahProduk.isEmpty()){
@@ -257,7 +318,7 @@ public class Order extends AppCompatActivity {
             harga2 = "0";
         }
 
-        databaseReference.child("Orders").child(userUid).push().setValue(new Order1(produk1, jumlahProduk1, harga1, produk2, jumlahProduk2, harga2,nama, alamat, phone, email));
+        databaseReference.child("Orders").child(userUid).push().setValue(new Order1(produk1, jumlahProduk1, harga1, produk2, jumlahProduk2, harga2,nama, alamat, phone, email, total));
 
     }
 

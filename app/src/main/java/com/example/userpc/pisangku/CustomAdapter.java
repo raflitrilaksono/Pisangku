@@ -15,7 +15,7 @@ import java.util.List;
 public class CustomAdapter extends BaseAdapter {
 
     private Context context;
-    private String[] title, photoUrl, price, desc, turunan;
+    private String[] title, photoUrl, price, rp, desc, turunan;
     List<Products> productsList;
 
     public CustomAdapter(Context context, List<Products> productsList){
@@ -24,6 +24,7 @@ public class CustomAdapter extends BaseAdapter {
        // this.title = title;
        // this.photoUrl = photoUrl;
        // this.price = price;
+        // this.rp = rp;
        // this.desc = desc;
        // this.turunan = turunan;
     }

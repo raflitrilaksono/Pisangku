@@ -72,6 +72,12 @@
             android:layout_height="wrap_content"
             android:textSize="17dp" />
 
+        <TextView
+            android:id="@+id/textsItemTotal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="17dp"/>
+
     </LinearLayout>
 
 

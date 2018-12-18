@@ -45,7 +45,7 @@ public class ListViewAdapter extends ArrayAdapter<Review> {
             TextView textViewItemAlamat = row.findViewById(R.id.textsItemAlamat);
             TextView textViewItemPhone = row.findViewById(R.id.textsItemPhone);
             TextView textViewItemEmail = row.findViewById(R.id.textsItemEmail);
-          //  TextView textViewItemTotal = row.findViewById(R.id.textsItemTotal);
+            TextView textViewItemTotal = row.findViewById(R.id.textsItemTotal);
 
 
             Review review = reviewList.get(pos);
@@ -60,7 +60,7 @@ public class ListViewAdapter extends ArrayAdapter<Review> {
             textViewItemAlamat.setText("Alamat Konsumen : "+review.getItemAlamat());
             textViewItemPhone.setText("No Hp Konsumen : "+review.getItemPhone());
             textViewItemEmail.setText("Email : "+review.getItemEmail());
-           // textViewItemTotal.setText("Total : "+review.getItemTotal());
+            textViewItemTotal.setText("Total : "+review.getItemTotal());
             return row;
         }
 

@@ -44,11 +44,11 @@ import java.util.List;
      String[] alamat = {};
      String[] phone = {};
      String[] email = {};
-    // String[] total = {};
+     String[] total = {};
 
      ArrayList arrayList = new ArrayList<>();
 
-     List<String> listProduk1, listJumlahProduk1, listHarga1, listProduk2, listJumlahProduk2, listHarga2, listNama, listAlamat, listPhone, listEmail;
+     List<String> listProduk1, listJumlahProduk1, listHarga1, listProduk2, listJumlahProduk2, listHarga2, listNama, listAlamat, listPhone, listEmail, listTotal;
 
      private DatabaseReference databaseReference;
      private FirebaseAuth firebaseAuth;
@@ -82,7 +82,7 @@ import java.util.List;
          listAlamat = new ArrayList<>(Arrays.asList(alamat));
          listPhone = new ArrayList<>(Arrays.asList(phone));
          listEmail = new ArrayList<>(Arrays.asList(email));
-       //  listTotal = new ArrayList<>(Arrays.asList(total));
+         listTotal = new ArrayList<>(Arrays.asList(total));
 
          databaseReference = FirebaseDatabase.getInstance().getReference();
 
@@ -102,7 +102,7 @@ import java.util.List;
              public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                  Order1 order1 = dataSnapshot.getValue(Order1.class);
 
-                 reviewList.add(new Review(order1.produk1, order1.jumlahProduk1, order1.harga1, order1.produk2, order1.jumlahProduk2, order1.harga2, order1.nama, order1.alamat, order1.phone, order1.email));
+                 reviewList.add(new Review(order1.produk1, order1.jumlahProduk1, order1.harga1, order1.produk2, order1.jumlahProduk2, order1.harga2, order1.nama, order1.alamat, order1.phone, order1.email, order1.total));
                  listViewAdapter.notifyDataSetChanged();
 
 //                title[title.length] = products.ge;
@@ -115,9 +115,7 @@ import java.util.List;
                      listJumlahProduk1.add(order1.jumlahProduk1.toString());
                  }
 
-                 listHarga1.add(order1.harga1.toString());
-
-                 if(order1.produk2.toString() != "Pilih barang") {
+                 listHarga1.add(order1.harga1.toString());if(order1.produk2.toString() != "Pilih barang") {
                      listProduk2.add(order1.produk2.toString());
                  }
                  if(order1.jumlahProduk2.toString() != "Pilih jumlah") {
@@ -128,7 +126,7 @@ import java.util.List;
                  listAlamat.add(order1.alamat.toString());
                  listPhone.add(order1.phone.toString());
                  listEmail.add(order1.email.toString());
-               //  listTotal.add(order1.total.toString());
+                 listTotal.add(order1.total.toString());
 
                  produk1 = listProduk1.toArray(produk1);
                  jumlahProduk1 = listJumlahProduk1.toArray(jumlahProduk1);
@@ -140,7 +138,7 @@ import java.util.List;
                  alamat = listAlamat.toArray(alamat);
                  phone = listPhone.toArray(phone);
                  email = listEmail.toArray(email);
-             //    total = listTotal.toArray(total);
+                 total = listTotal.toArray(total);
 
                 // Toast.makeText(tas.this, "Pemesanan Berhasil", Toast.LENGTH_LONG).show();
 
@@ -180,7 +178,7 @@ import java.util.List;
              public void onChildRemoved(DataSnapshot dataSnapshot) {
                  Order1 order1 = dataSnapshot.getValue(Order1.class);
 
-                 reviewList.remove(new Review(order1.produk1, order1.jumlahProduk1, order1.harga1, order1.produk2, order1.jumlahProduk2, order1.harga2, order1.nama, order1.alamat, order1.phone, order1.email));
+                 reviewList.remove(new Review(order1.produk1, order1.jumlahProduk1, order1.harga1, order1.produk2, order1.jumlahProduk2, order1.harga2, order1.nama, order1.alamat, order1.phone, order1.email, order1.total));
                  listViewAdapter.notifyDataSetChanged();
 
                  listProduk1.remove(order1.produk1.toString());
@@ -193,7 +191,7 @@ import java.util.List;
                  listAlamat.remove(order1.alamat.toString());
                  listPhone.remove(order1.phone.toString());
                  listEmail.remove(order1.email.toString());
-                // listTotal.remove(order1.total.toString());
+                 listTotal.remove(order1.total.toString());
 
                  produk1 = listProduk1.toArray(produk1);
                  jumlahProduk1 = listJumlahProduk1.toArray(jumlahProduk1);
@@ -205,7 +203,7 @@ import java.util.List;
                  alamat = listAlamat.toArray(alamat);
                  phone = listPhone.toArray(phone);
                  email = listEmail.toArray(email);
-               //  total = listTotal.toArray(total);
+                 total = listTotal.toArray(total);
 
          }
              @Override

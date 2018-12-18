@@ -39,6 +39,7 @@ public class ProductsActivity extends AppCompatActivity{
     String[] title = {};
     String[] photoUrl ={};
     String[] price = {};
+    String[] rp = {};
     String[] desc = {};
     String[] turunan = {};
 
@@ -48,7 +49,7 @@ public class ProductsActivity extends AppCompatActivity{
     CustomAdapter adapter;
     ArrayList arrayList = new ArrayList<>();
 
-    List<String> listTitle, listPhotoUrl, listPrice, listDesc, listTurunan;
+    List<String> listTitle, listPhotoUrl, listPrice, listRp, listDesc, listTurunan;
     List<Products> productsList;
 
     private DatabaseReference databaseReference;
@@ -67,6 +68,7 @@ public class ProductsActivity extends AppCompatActivity{
         listTitle = new ArrayList<>(Arrays.asList(title));
         listPhotoUrl = new ArrayList<>(Arrays.asList(photoUrl));
         listPrice = new ArrayList<>(Arrays.asList(price));
+        listRp = new ArrayList<>(Arrays.asList(rp));
         listDesc = new ArrayList<>(Arrays.asList(desc));
         listTurunan = new ArrayList<>(Arrays.asList(turunan));
 
@@ -101,6 +103,7 @@ public class ProductsActivity extends AppCompatActivity{
                 TextView tvProductTitle = dialog.findViewById(R.id.product_title);
                 ImageView ivProductPhotoUrl = dialog.findViewById(R.id.product_photoUrl);
                 TextView tvProductPrice = dialog.findViewById(R.id.product_price);
+                TextView tvProductRp = dialog.findViewById(R.id.product_rp);
                 TextView tvProductDesc = dialog.findViewById(R.id.product_desc);
                 TextView tvProductTurunan = dialog.findViewById(R.id.product_turunan);
 
@@ -108,6 +111,7 @@ public class ProductsActivity extends AppCompatActivity{
                 tvProductTitle.setText(title[pos]);
                 Glide.with(context).load(photoUrl[pos]).into(ivProductPhotoUrl);
                 tvProductPrice.setText(price[pos]);
+                tvProductRp.setText(rp[pos]);
                 tvProductDesc.setText(desc[pos]);
                 tvProductTurunan.setText(turunan[pos]);
 
@@ -156,12 +160,14 @@ public class ProductsActivity extends AppCompatActivity{
                 listTitle.add(products.title.toString());
                 listPhotoUrl.add(products.photoUrl.toString());
                 listPrice.add(products.price.toString());
+                listRp.add(products.rp.toString());
                 listDesc.add(products.desc.toString());
                 listTurunan.add(products.turunan.toString());
 
                 title = listTitle.toArray(title);
                 photoUrl = listPhotoUrl.toArray(photoUrl);
                 price = listPrice.toArray(price);
+                rp = listRp.toArray(rp);
                 desc = listDesc.toArray(desc);
                 turunan = listTurunan.toArray(turunan);
 
@@ -205,12 +211,14 @@ public class ProductsActivity extends AppCompatActivity{
                 listTitle.remove(products.title.toString());
                 listPhotoUrl.remove(products.photoUrl.toString());
                 listPrice.remove(products.price.toString());
+                listRp.remove(products.rp.toString());
                 listDesc.remove(products.desc.toString());
                 listTurunan.remove(products.turunan.toString());
 
                 title = listTitle.toArray(title);
                 photoUrl = listPhotoUrl.toArray(photoUrl);
                 price = listPrice.toArray(price);
+                rp = listRp.toArray(rp);
                 desc = listDesc.toArray(desc);
                 turunan = listTurunan.toArray(turunan);
 

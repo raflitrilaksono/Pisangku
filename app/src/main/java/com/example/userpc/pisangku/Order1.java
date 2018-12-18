@@ -3,12 +3,12 @@ package com.example.userpc.pisangku;
 import java.util.List;
 
 public class Order1 {
-    String produk1, jumlahProduk1, harga1, produk2, jumlahProduk2, harga2, nama, alamat, phone, email;
+    String produk1, jumlahProduk1, harga1, produk2, jumlahProduk2, harga2, nama, alamat, phone, email, total;
 
     public Order1() {
     }
 
-    public Order1(String produk1, String jumlahProduk1, String harga1, String produk2, String jumlahProduk2, String harga2, String nama, String alamat, String phone, String email) {
+    public Order1(String produk1, String jumlahProduk1, String harga1, String produk2, String jumlahProduk2, String harga2, String nama, String alamat, String phone, String email, String total) {
         this.produk1 = produk1;
         this.jumlahProduk1 = jumlahProduk1;
         this.harga1 = harga1;
@@ -19,7 +19,7 @@ public class Order1 {
         this.alamat = alamat;
         this.phone = phone;
         this.email = email;
-      //  this.total = total;
+        this.total = total;
     }
 
     public String getProduk1() { return produk1; }
@@ -92,11 +92,11 @@ public class Order1 {
         this.email = email;
     }
 
-  //  public String getTotal() {
-    //    return total;
-   // }
+    public String getTotal() {
+        return total;
+    }
 
-   // public void setTotal(String total) {
-     //   this.total = total;
-    //}
+    public void setTotal(String total) {
+        this.total = total;
+    }
 }

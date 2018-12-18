@@ -2,7 +2,7 @@ package com.example.userpc.pisangku;
 
 public class Products {
 
-    String title, photoUrl, price,desc,turunan;
+    String title, photoUrl, price, rp, desc, turunan;
 
     public String getTitle() {
         return title;
@@ -20,6 +20,10 @@ public class Products {
 
     public void setPrice(String price) { this.price = price; }
 
+    public String getRp() { return rp; }
+
+    public void setRp(String rp) { this.rp = rp; }
+
     public String getDesc() { return desc; }
 
     public void setDesc(String desc) { this.desc = desc; }
@@ -29,11 +33,12 @@ public class Products {
     public void setTurunan(String turunan) { this.turunan = turunan; }
 
 
-    public Products(String title, String photoUrl, String price, String desc, String turunan) {
+    public Products(String title, String photoUrl, String price, String rp, String desc, String turunan) {
 
         this.title = title;
         this.photoUrl = photoUrl;
         this.price = price;
+        this.rp = rp;
         this.desc = desc;
         this.turunan = turunan;
     }

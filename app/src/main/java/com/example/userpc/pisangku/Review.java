@@ -4,9 +4,9 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 
 public class Review {
-        String itemProduk1, itemjumlahProduk1, itemHarga1, itemProduk2, itemjumlahProduk2, itemHarga2, itemNama, itemAlamat, itemPhone, itemEmail;
+        String itemProduk1, itemjumlahProduk1, itemHarga1, itemProduk2, itemjumlahProduk2, itemHarga2, itemNama, itemAlamat, itemPhone, itemEmail, itemTotal;
 
-        public Review(String itemProduk1, String itemjumlahProduk1, String itemHarga1, String itemProduk2, String itemjumlahProduk2, String itemHarga2, String itemNama, String itemAlamat, String itemPhone, String itemEmail){
+        public Review(String itemProduk1, String itemjumlahProduk1, String itemHarga1, String itemProduk2, String itemjumlahProduk2, String itemHarga2, String itemNama, String itemAlamat, String itemPhone, String itemEmail, String itemTotal){
 
             this.itemProduk1 = itemProduk1;
             this.itemjumlahProduk1 = itemjumlahProduk1;
@@ -18,7 +18,7 @@ public class Review {
             this.itemAlamat = itemAlamat;
             this.itemPhone = itemPhone;
             this.itemEmail = itemEmail;
-           // this.itemTotal = itemTotal;
+            this.itemTotal = itemTotal;
         }
 
         public String getItemProduk1() {
@@ -100,11 +100,10 @@ public class Review {
             this.itemEmail = itemEmail;
         }
 
- //   public String getItemTotal() {
-   //     return itemTotal;
-    //}
-
-    //public void setItemTotal(String itemTotal) {
-      //  this.itemTotal = itemTotal;
-    //}
+    public String getItemTotal() {
+       return itemTotal;
+    }
+    public void setItemTotal(String itemTotal) {
+        this.itemTotal = itemTotal;
+    }
 }
